@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:frapper/screens/product_view/product_view.dart';
+import 'package:frapper/seller_view/seller_home.dart';
 
 // Picture
 // Added time
@@ -25,6 +26,7 @@ class _ProductsPageState extends State<ProductsPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Card(
       elevation: 2.0,
       shape: RoundedRectangleBorder(
@@ -34,7 +36,7 @@ class _ProductsPageState extends State<ProductsPage> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
         ),
-        height: 250,
+        height: size.height / 3.5,
         child: Column(
           children: [
             InkWell(
@@ -48,7 +50,7 @@ class _ProductsPageState extends State<ProductsPage> {
               ),
               child: SizedBox(
                 width: double.infinity,
-                height: 160,
+                height: size.height / 4.9,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -175,7 +177,14 @@ class _ProductsPageState extends State<ProductsPage> {
                   children: [
                     // Added By
                     InkWell(
-                      onTap: () {},
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const SellerHome();
+                          },
+                        ),
+                      ),
                       borderRadius: BorderRadius.circular(10.0),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),

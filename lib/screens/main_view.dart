@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frapper/screens/home_page.dart';
+import 'package:frapper/screens/notifications/notifications.dart';
 import 'package:frapper/screens/offers_page.dart';
 import 'package:frapper/screens/profile_page.dart';
 
@@ -38,7 +39,14 @@ class _MainViewState extends State<MainView> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const Notifications();
+                  },
+                ),
+              ),
               icon: const Icon(Icons.notifications),
               splashRadius: 20.0,
             ),
